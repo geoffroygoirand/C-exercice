@@ -1,0 +1,30 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+void selection(int Tableau[], int n)
+
+     int min,temp;
+     for(int i = 0 ; i < n-1 ; i++)
+     {
+         min = i;                 
+         for(int j = i+1 ; j < n ; j++)
+             if(Tableau[j] < Tableau[min])
+                min = j;
+         if(min!=i)
+         {
+            //échanger t[i] et t[min]
+            temp = Tableau[i];
+            Tableau[i]=Tableau[min];
+            Tableau[min]=temp;          
+         }
+     }     
+}
+
+main()
+{
+      int Tableau[10]={5,2,126,9,51,7,1,6,12,24};
+      selection(Tableau,10);
+      for (int i=0 ; i< 10 ; i++)
+      printf("%d ",Tableau[i]);
+      system("pause");
+}
